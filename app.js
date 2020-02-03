@@ -1,9 +1,6 @@
 //NPM Packages
 const inquirer = require("inquirer");
-const fs = require("fs-extra");
-const util = require("util");
-const axios = require("axios");
-
+//npm install --save-dev jest (Jest TEST)
 //File Calls
 const employee = require("./lib/Employee")
 const engineer = require("./lib/Engineer")
