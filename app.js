@@ -9,7 +9,7 @@ const manager = require ("./lib/Manager");
 
 //Inquire questions
 
-function employeeName(){
+function employeeNames(){
     const employeeName = inquirer.prompt({
         type: "input",
         name: "employeeName",
@@ -17,7 +17,7 @@ function employeeName(){
     });
     return employeeName;
 }
-function employeeId(){
+function employeeIds(){
     const employeeId = inquirer.prompt({
         type: "input",
         name: "employeeId",
@@ -25,7 +25,7 @@ function employeeId(){
     });
     return employeeId;
 }
-function employeeTitle(){
+function employeeTitles(){
     const employeeTitle = inquirer.prompt({
         type: "list",
         name: "employeeTitle",
@@ -37,9 +37,9 @@ function employeeTitle(){
 
 async function init(){
     try{
-        let {employeeName} = await employeeName();
-        let { employeeId } = await employeeId();
-        const { employeeTitle } = await employeeTitle();
+        let {employeeName} = await employeeNames();
+        let {employeeId} = await employeeIds();
+        const {employeeTitle} = await employeeTitles();
 
     }
     catch(err){
