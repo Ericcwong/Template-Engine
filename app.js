@@ -15,22 +15,35 @@ function employeeName(){
         name: "employeeName",
         message: "What is your name?" 
     });
+    return employeeName;
 }
 function employeeId(){
-    const employeeId = inquirer({
+    const employeeId = inquirer.prompt({
         type: "input",
         name: "employeeId",
         message: "Please enter your employee number?"
     });
+    return employeeId;
 }
 function employeeTitle(){
-    const employeeTitle = inquirer({
+    const employeeTitle = inquirer.prompt({
         type: "list",
         name: "employeeTitle",
         message: "What is your role in this company?",
         choices: ["Manager","Engineer","Intern"]
-
     });
+    return employeeTitle;
 }
 
-async function 
+async function init(){
+    try{
+        let {employeeName} = await employeeName();
+        let { employeeId } = await employeeId();
+        const { employeeTitle } = await employeeTitle();
+
+    }
+    catch(err){
+        console.log(err);
+    }
+}
+init();
