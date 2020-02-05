@@ -43,12 +43,12 @@ function employeeTitleManger(){
     return manager;
 }
 function employeeTitleEngineer(){
-    const Engineer = inquirer.prompt({
+    const engineer = inquirer.prompt({
         type: "input",
-        name: "Engineer",
+        name: "engineer",
         message: "What is the Github username?"
     });
-    return Engineer;
+    return engineer;
 }
 function employeeTitleIntern(){
     const intern = inquirer.prompt({
@@ -70,7 +70,7 @@ async function init(){
             const { manager } = await employeeTitleManger(employeeTitle);
             break;
             case "Engineer":
-            const { Engineer } = await employeeTitleEngineer(employeeTitle.choice);
+            const { engineer } = await employeeTitleEngineer(employeeTitle.choice);
             break;
             case "Intern":
             const { intern } = await employeeTitleIntern(employeeTitle);
