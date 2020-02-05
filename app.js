@@ -13,7 +13,7 @@ function employeeNames(){
     const employeeName = inquirer.prompt({
         type: "input",
         name: "employeeName",
-        message: "What is your name?" 
+        message: "What is their first and last name?" 
     });
     return employeeName;
 }
@@ -21,7 +21,7 @@ function employeeIds(){
     const employeeId = inquirer.prompt({
         type: "input",
         name: "employeeId",
-        message: "Please enter your employee number?"
+        message: "What is their employee number?"
     });
     return employeeId;
 }
@@ -29,7 +29,7 @@ function employeeTitles(){
     const employeeTitle = inquirer.prompt({
         type: "list",
         name: "employeeTitle",
-        message: "What is your role in this company?",
+        message: "What is their role in this company?",
         choices: ["Manager","Engineer","Intern"]
     });
     return employeeTitle;
