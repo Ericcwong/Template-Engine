@@ -34,12 +34,48 @@ function employeeTitles(){
     });
     return employeeTitle;
 }
+function employeeTitleManger(){
+    const manager = inquirer.prompt({
+        type: "input",
+        name: "manager",
+        message: "What is the office room number?"
+    });
+    return manager;
+}
+function employeeTitleEngineer(){
+    const Engineer = inquirer.prompt({
+        type: "input",
+        name: "Engineer",
+        message: "What is the Github username?"
+    });
+    return Engineer;
+}
+function employeeTitleIntern(){
+    const intern = inquirer.prompt({
+        type: "input",
+        name: "Intern",
+        message: "What school did they attend?"
+    });
+    return intern;
+}
 
+//calling all the functions when called
 async function init(){
     try{
         let {employeeName} = await employeeNames();
         let {employeeId} = await employeeIds();
         const {employeeTitle} = await employeeTitles();
+        switch(employeeTitle){
+            case "Manager":
+            const { manager } = await employeeTitleManger(employeeTitle);
+            break;
+            case "Engineer":
+            const { Engineer } = await employeeTitleEngineer(employeeTitle.choice);
+            break;
+            case "Intern":
+            const { intern } = await employeeTitleIntern(employeeTitle);
+            break;
+        }
 
     }
     catch(err){
