@@ -2,18 +2,31 @@
 const inquirer = require("inquirer");
 //npm install --save-dev jest (Jest TEST)
 //File Calls
-const employee = require("./lib/Employee");
-const engineer = require("./lib/Engineer");
-const intern = require ("./lib/Intern");
-const manager = require ("./lib/Manager");
+const Employee = require("./lib/Employee");
+const Engineer = require("./lib/Engineer");
+const Intern = require ("./lib/Intern");
+const Manager = require ("./lib/Manager");
+let teamArray = [];
 
+//validation for the questions
+function validateString(string){
+    return string !== '';
+}
+function validateNumber(number){
+   var reg = /^\d+$/;
+   return reg.test(number) || "Please enter a number!";
+}
+function validateEmail(email){
+        return /\S+@\S+\.\S+/.test(email)
+}
 //Inquire questions
 
 function employeeNames(){
     const employeeName = inquirer.prompt({
         type: "input",
         name: "employeeName",
-        message: "What is their first and last name?" 
+        message: "What is their first and last name?",
+        validate: validateString
     });
     return employeeName;
 }
@@ -21,9 +34,19 @@ function employeeIds(){
     const employeeId = inquirer.prompt({
         type: "input",
         name: "employeeId",
-        message: "What is their employee number?"
+        message: "What is their employee number?",
+        validate: validateNumber
     });
     return employeeId;
+}
+function employeeEmails(){
+    const employeeEmail = inquirer.prompt({
+        type: "input",
+        name: "employeeEmail",
+        message: "What is their employee email?",
+        validate: validateEmail
+    });
+    return employeeEmail;
 }
 function employeeTitles(){
     const employeeTitle = inquirer.prompt({
@@ -34,19 +57,21 @@ function employeeTitles(){
     });
     return employeeTitle;
 }
-function employeeTitleManger(){
-    const manager = inquirer.prompt({
+function employeeTitleManager(){
+    const managerRoom = inquirer.prompt({
         type: "input",
-        name: "manager",
-        message: "What is the office room number?"
+        name: "managerRoom",
+        message: "What is the office room number?",
+        validate: validateNumber
     });
-    return manager;
+    return managerRoom;
 }
 function employeeTitleEngineer(){
     const engineer = inquirer.prompt({
         type: "input",
         name: "engineer",
-        message: "What is the Github username?"
+        message: "What is their Github username?",
+        validate: validateString
     });
     return engineer;
 }
@@ -54,7 +79,8 @@ function employeeTitleIntern(){
     const intern = inquirer.prompt({
         type: "input",
         name: "Intern",
-        message: "What school did they attend?"
+        message: "What school did they attend?",
+        validate: validateString
     });
     return intern;
 }
@@ -62,21 +88,31 @@ function employeeTitleIntern(){
 //calling all the functions when called
 async function init(){
     try{
-        let {employeeName} = await employeeNames();
-        let {employeeId} = await employeeIds();
         const {employeeTitle} = await employeeTitles();
+        let { employeeName } = await employeeNames();
+        let { employeeId } = await employeeIds();
+        let {employeeEmail } = await employeeEmails();
+        let { managerRoom } = await employeeTitleManager();
+        
         switch(employeeTitle){
             case "Manager":
-            const { manager } = await employeeTitleManger(employeeTitle);
+            let { manager } = await employeeTitleManager(employeeTitle);
+            let newManager = new Manager(
+                employeeName,
+                employeeId,
+                employeeEmail,
+                managerRoom
+            )
+            teamArray.push(newManager);
             break;
             case "Engineer":
-            const { engineer } = await employeeTitleEngineer(employeeTitle.choice);
+            let { engineer } = await employeeTitleEngineer(employeeTitle.choice);
             break;
             case "Intern":
-            const { intern } = await employeeTitleIntern(employeeTitle);
+            let { intern } = await employeeTitleIntern(employeeTitle);
             break;
         }
-
+        console.log(teamArray)
     }
     catch(err){
         console.log(err);
