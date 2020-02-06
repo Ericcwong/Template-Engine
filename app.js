@@ -57,6 +57,8 @@ function employeeTitles(){
     });
     return employeeTitle;
 }
+
+//Roles
 function employeeTitleManager(){
     const managerRoom = inquirer.prompt({
         type: "input",
@@ -87,35 +89,61 @@ function employeeTitleIntern(){
 
 //calling all the functions when called
 async function init(){
-    try{
-        const {employeeTitle} = await employeeTitles();
-        let { employeeName } = await employeeNames();
-        let { employeeId } = await employeeIds();
-        let {employeeEmail } = await employeeEmails();
-        let { managerRoom } = await employeeTitleManager();
-        
-        switch(employeeTitle){
-            case "Manager":
-            let { manager } = await employeeTitleManager(employeeTitle);
-            let newManager = new Manager(
-                employeeName,
-                employeeId,
-                employeeEmail,
-                managerRoom
-            )
-            teamArray.push(newManager);
-            break;
-            case "Engineer":
-            let { engineer } = await employeeTitleEngineer(employeeTitle.choice);
-            break;
-            case "Intern":
-            let { intern } = await employeeTitleIntern(employeeTitle);
-            break;
+    do{
+        try{
+
+            const {employeeTitle} = await employeeTitles();
+            let { employeeName } = await employeeNames();
+            let { employeeId } = await employeeIds();
+            let {employeeEmail } = await employeeEmails();
+            
+            switch(employeeTitle){
+                case "Manager":
+                let { managerRoom } = await employeeTitleManager(employeeTitle);
+                let newManager = new Manager(
+                    employeeName,
+                    employeeId,
+                    employeeEmail,
+                    managerRoom
+                )
+                teamArray.push(newManager);
+                console.log(teamArray)
+                break;
+                case "Engineer":
+                let { engineer } = await employeeTitleEngineer(employeeTitle);
+                let newEngineer = new Engineer(
+                    employeeName,
+                    employeeId,
+                    employeeEmail,
+                    engineer
+                )
+                teamArray.push(newEngineer);
+                console.log(teamArray);
+                break;
+                case "Intern":
+                let { intern } = await employeeTitleIntern(employeeTitle);
+                let newIntern = new Intern(
+                    employeeName,
+                    employeeId,
+                    employeeEmail,
+                    intern
+                )
+                teamArray.push(newIntern);
+                console.log(teamArray);
+                break;
+            }
+
         }
-        console.log(teamArray)
-    }
-    catch(err){
-        console.log(err);
-    }
+        catch(err){
+            console.log(err);
+        }
+        done = await inquirer.prompt({
+            type: "list",
+            name: "finish",
+            message: "Do you have any more employees?",
+            choices: ["Yes", "No"]
+
+        });
+    }while (done.finish === "Yes")
 }
 init();
