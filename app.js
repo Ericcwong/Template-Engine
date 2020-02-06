@@ -107,7 +107,7 @@ async function init(){
                     managerRoom
                 )
                 teamArray.push(newManager);
-                console.log(teamArray)
+                console.log("New Manager added!")
                 break;
                 case "Engineer":
                 let { engineer } = await employeeTitleEngineer(employeeTitle);
@@ -118,7 +118,7 @@ async function init(){
                     engineer
                 )
                 teamArray.push(newEngineer);
-                console.log(teamArray);
+                console.log("New Engineer added!")
                 break;
                 case "Intern":
                 let { intern } = await employeeTitleIntern(employeeTitle);
@@ -129,7 +129,7 @@ async function init(){
                     intern
                 )
                 teamArray.push(newIntern);
-                console.log(teamArray);
+                console.log("New Intern added!")
                 break;
             }
 
@@ -145,5 +145,6 @@ async function init(){
 
         });
     }while (done.finish === "Yes")
+
 }
 init();
