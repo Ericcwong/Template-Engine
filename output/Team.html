@@ -1,7 +1,4 @@
-
-function generateHTML (teamCards){
-
-    return `<!doctype html>
+<!doctype html>
     <html lang="en">
       <head>
         <title>Team Cards</title>
@@ -13,25 +10,24 @@ function generateHTML (teamCards){
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style>
-        h1{
-            text-align: center;
-            color: white;
-            padding: 30px;
-        }
-        body{
-          margin: 0;
-          padding: 0;
-          text-align: center;
-        }
-        .container-fluid{
-          margin: 0 auto;
-          width: 900px;
-          max-width: 100%;
-        }
-        .card-deck .card{
-          width: 18rem;
-          margin-bottom: 30px;
-        }
+            h1{
+                text-align: center;
+                color: white;
+                padding: 30px;
+            }
+            body{
+              margin: 0;
+              padding: 0;
+              text-align: center;
+            }
+            .container-fluid{
+              margin: 0 auto;
+              width: 900px;
+              max-width: 100%;
+            }
+            .card{
+              width: 18rem;
+            }
         </style>
       </head>
       <body>
@@ -40,8 +36,10 @@ function generateHTML (teamCards){
           </header>
      
               <div class="container-fluid">
-
-                    ${teamCards}
+                <div class="row">
+                  <div class = "col">
+                    
+                  </div>
                 </div>
               </div>
     
@@ -52,6 +50,4 @@ function generateHTML (teamCards){
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
       </body>
-    </html>`
-}
-module.exports = generateHTML;
+    </html>

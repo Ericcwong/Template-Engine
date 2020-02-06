@@ -1,12 +1,17 @@
 //NPM Packages
 const inquirer = require("inquirer");
+const fs = require("fs-extra");
+const util = require("util");
+const writeFile = util.promisify(fs.writeFile);
 //npm install --save-dev jest (Jest TEST)
 //File Calls
 const Employee = require("./lib/Employee");
 const Engineer = require("./lib/Engineer");
 const Intern = require ("./lib/Intern");
 const Manager = require ("./lib/Manager");
+const generateHTML = require("./templates/generateHTML");
 let teamArray = [];
+let teamCards =""
 
 //validation for the questions
 function validateString(string){
@@ -80,7 +85,7 @@ function employeeTitleEngineer(){
 function employeeTitleIntern(){
     const intern = inquirer.prompt({
         type: "input",
-        name: "Intern",
+        name: "intern",
         message: "What school did they attend?",
         validate: validateString
     });
@@ -145,6 +150,9 @@ async function init(){
 
         });
     }while (done.finish === "Yes")
-
-}
+    console.log(teamArray)
+    // teamArray.forEach(Obj => function generateCard
+    const createHTML = generateHTML(teamCards);
+    writeFile("./output/Team.html",createHTML);
+    }
 init();
