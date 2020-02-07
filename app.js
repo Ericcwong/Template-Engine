@@ -177,7 +177,7 @@ async function init(){
       <p class="card-text"><strong>${htmlText}</strong>${title}</p>
     </div>
   </div>`
-    });
+    }).join("");
 
 
     //generates the HTML file in the output folder

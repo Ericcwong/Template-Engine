@@ -14,7 +14,7 @@ function generateHTML (teamCards){
         <style>
         h1{
             text-align: center;
-            color: black;
+            color: white;
             padding: 30px;
         }
         body{
@@ -28,7 +28,7 @@ function generateHTML (teamCards){
           max-width: 100%;
         }
         .card{
-            max-width: 17rem;
+            min-width: 17rem;
             margin-bottom: 30px;
             margin-right: 8px;
             margin-left: 8px;
