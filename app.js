@@ -153,28 +153,30 @@ async function init(){
     }while (done.finish === "Yes")
     console.log(teamArray)
     //Create the cards
-    let teamCards = teamArray.map((teamArray) => {
-        return  `
-    <div class="card">
+    let teamCards = teamArray.map((team) => {
+        console.log(team);
+        let title;
+        let htmlText;
+        if(team.title ==="Manager"){
+            title = team.officeNumber;
+            htmlText = "Office Number: ";
+        }else if (team.title ==="Engineer"){
+            title = team.github;
+            htmlText = "Github: ";
+        }else{
+            title = team.school;
+            htmlText = "School: ";
+        }
+        return `<div class="card">
     <div class="card-header bg-primary">
-      <h2 class="text-white">${teamArray.name}</h2>
-      <h3 class="text-white">${teamArray.title}</h3>
-  </div>
+      <h2 class="text-white">${team.name}</h2>
+      <h3 class="text-white">${team.title}</h3></div>
     <div class="card-body">
-    <p class="card-text">ID: ${teamArray.id}</p>
-      <p class="card-text">Email: ${teamArray.email}</p>
-      ${
-          (teamArray =>{
-              if(teamArray == Manager){
-                return  `<p class="card-text">${teamArray.managerRoom}</p>`
-              }else if(teamArray == Employee){
-                  return  `<p class="card-text">${teamArray.engineer}</p>`
-              }
-          })
-      }
+    <p class="card-text"><strong>ID: </strong>${team.id}</p>
+      <p class="card-text"><strong>Email: </strong>${team.email}</p>
+      <p class="card-text"><strong>${htmlText}</strong>${title}</p>
     </div>
-  </div>
-    `
+  </div>`
     });
 
 

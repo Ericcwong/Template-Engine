@@ -14,7 +14,7 @@ function generateHTML (teamCards){
         <style>
         h1{
             text-align: center;
-            color: white;
+            color: black;
             padding: 30px;
         }
         body{
@@ -42,10 +42,9 @@ function generateHTML (teamCards){
           </header>
      
               <div class="container-fluid">
-
                     ${teamCards}
-                </div>
               </div>
+             
     
     
         <!-- Optional JavaScript -->
