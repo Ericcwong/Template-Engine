@@ -10,8 +10,9 @@ const Engineer = require("./lib/Engineer");
 const Intern = require ("./lib/Intern");
 const Manager = require ("./lib/Manager");
 const generateHTML = require("./templates/generateHTML");
+const generateCard = require("./templates/generateHTML");
 let teamArray = [];
-let teamCards =""
+let teamCards ="";
 
 //validation for the questions
 function validateString(string){
@@ -151,7 +152,33 @@ async function init(){
         });
     }while (done.finish === "Yes")
     console.log(teamArray)
-    // teamArray.forEach(Obj => function generateCard
+    //Create the cards
+    let teamCards = teamArray.map((teamArray) => {
+        return  `
+    <div class="card">
+    <div class="card-header bg-primary">
+      <h2 class="text-white">${teamArray.name}</h2>
+      <h3 class="text-white">${teamArray.title}</h3>
+  </div>
+    <div class="card-body">
+    <p class="card-text">ID: ${teamArray.id}</p>
+      <p class="card-text">Email: ${teamArray.email}</p>
+      ${
+          (teamArray =>{
+              if(teamArray == Manager){
+                return  `<p class="card-text">${teamArray.managerRoom}</p>`
+              }else if(teamArray == Employee){
+                  return  `<p class="card-text">${teamArray.engineer}</p>`
+              }
+          })
+      }
+    </div>
+  </div>
+    `
+    });
+
+
+    //generates the HTML file in the output folder
     const createHTML = generateHTML(teamCards);
     writeFile("./output/Team.html",createHTML);
     }

@@ -1,4 +1,3 @@
-
 function generateHTML (teamCards){
 
     return `<!doctype html>
