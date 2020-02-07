@@ -25,10 +25,14 @@
           width: 900px;
           max-width: 100%;
         }
-        .card-deck .card{
-          width: 18rem;
+        .card{
+          max-width: 17rem;
           margin-bottom: 30px;
+          margin-right: 8px;
+          margin-left: 8px;
+          float:left;
         }
+
         </style>
       </head>
       <body>
@@ -41,12 +45,12 @@
                     
     <div class="card">
     <div class="card-header bg-primary">
-      <h2 class="text-white">ERIC</h2>
+      <h2 class="text-white">Eric Wong</h2>
       <h3 class="text-white">Manager</h3>
   </div>
     <div class="card-body">
-    <p class="card-text">1</p>
-      <p class="card-text">T@T.com</p>
+    <p class="card-text">ID: 1</p>
+      <p class="card-text">Email: T@T.com</p>
       teamArray =>{
               if(teamArray == Manager){
                 return  `<p class="card-text">${teamArray.managerRoom}</p>`
@@ -56,15 +60,64 @@
           }
     </div>
   </div>
-    ,
-    <div class="card">
+  <div class="card">
     <div class="card-header bg-primary">
-      <h2 class="text-white">WONG</h2>
-      <h3 class="text-white">Engineer</h3>
+      <h2 class="text-white">Eric Wong</h2>
+      <h3 class="text-white">Manager</h3>
   </div>
     <div class="card-body">
-    <p class="card-text">2</p>
-      <p class="card-text">S@W.com</p>
+    <p class="card-text">ID: 1</p>
+      <p class="card-text">Email: T@T.com</p>
+      teamArray =>{
+              if(teamArray == Manager){
+                return  `<p class="card-text">${teamArray.managerRoom}</p>`
+              }else if(teamArray == Employee){
+                  return  `<p class="card-text">${teamArray.engineer}</p>`
+              }
+          }
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header bg-primary">
+      <h2 class="text-white">Eric Wong</h2>
+      <h3 class="text-white">Manager</h3>
+  </div>
+    <div class="card-body">
+    <p class="card-text">ID: 1</p>
+      <p class="card-text">Email: T@T.com</p>
+      teamArray =>{
+              if(teamArray == Manager){
+                return  `<p class="card-text">${teamArray.managerRoom}</p>`
+              }else if(teamArray == Employee){
+                  return  `<p class="card-text">${teamArray.engineer}</p>`
+              }
+          }
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header bg-primary">
+      <h2 class="text-white">Eric Wong</h2>
+      <h3 class="text-white">Manager</h3>
+  </div>
+    <div class="card-body">
+    <p class="card-text">ID: 1</p>
+      <p class="card-text">Email: T@T.com</p>
+      teamArray =>{
+              if(teamArray == Manager){
+                return  `<p class="card-text">${teamArray.managerRoom}</p>`
+              }else if(teamArray == Employee){
+                  return  `<p class="card-text">${teamArray.engineer}</p>`
+              }
+          }
+    </div>
+  </div>    <div class="card">
+    <div class="card-header bg-primary">
+      <h2 class="text-white">Eric Wong</h2>
+      <h3 class="text-white">Manager</h3>
+  </div>
+    <div class="card-body">
+    <p class="card-text">ID: 1</p>
+      <p class="card-text">Email: T@T.com</p>
       teamArray =>{
               if(teamArray == Manager){
                 return  `<p class="card-text">${teamArray.managerRoom}</p>`

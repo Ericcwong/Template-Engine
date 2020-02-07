@@ -27,10 +27,13 @@ function generateHTML (teamCards){
           width: 900px;
           max-width: 100%;
         }
-        .card-deck .card{
-          width: 18rem;
-          margin-bottom: 30px;
-        }
+        .card{
+            max-width: 17rem;
+            margin-bottom: 30px;
+            margin-right: 8px;
+            margin-left: 8px;
+            float:left;
+          }
         </style>
       </head>
       <body>
